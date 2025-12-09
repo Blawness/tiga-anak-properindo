@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { FadeIn } from "./motion";
 
@@ -7,9 +8,20 @@ export default function Footer() {
     <footer className="mt-12 border-t border-brand-black/5 bg-white">
       <FadeIn className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 md:flex-row md:items-start md:justify-between">
         <div className="flex max-w-md flex-col gap-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-primary">
-            {siteConfig.name}
-          </p>
+          <div className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full">
+              <Image
+                src="/android-chrome-192x192.png"
+                alt={siteConfig.name}
+                fill
+                className="object-cover"
+                sizes="40px"
+              />
+            </div>
+            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-primary">
+              {siteConfig.name}
+            </p>
+          </div>
           <p className="text-base text-brand-neutral">{siteConfig.description}</p>
           <p className="text-sm text-brand-neutral">
             {siteConfig.tagline}

@@ -5,12 +5,14 @@ type CTAButtonProps = {
   href: string;
   children: ReactNode;
   variant?: "solid" | "ghost";
+  className?: string;
 };
 
 export default function CTAButton({
   href,
   children,
   variant = "solid",
+  className = "",
 }: CTAButtonProps) {
   const base =
     "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-hover";
@@ -21,7 +23,7 @@ export default function CTAButton({
       : "border border-brand-primary/30 text-brand-primary hover:border-brand-hover hover:text-brand-black hover:bg-brand-gradient-soft";
 
   return (
-    <Link href={href} className={`${base} ${styles}`}>
+    <Link href={href} className={`${base} ${styles} ${className}`}>
       {children}
     </Link>
   );

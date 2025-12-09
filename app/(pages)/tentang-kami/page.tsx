@@ -2,8 +2,10 @@ import { buildMetadata } from "@/lib/meta";
 import ContactCard from "@/components/contact-card";
 import PageHero from "@/components/page-hero";
 import Section from "@/components/section";
+import SectionWithImage from "@/components/section-with-image";
 import { siteConfig } from "@/lib/site-config";
 import { FadeIn } from "@/components/motion";
+import Image from "next/image";
 
 export const metadata = buildMetadata({
   title: "Tentang Kami",
@@ -23,60 +25,88 @@ export default function AboutPage() {
         ctaHref={mailto}
       />
 
-      <Section title="Siapa kami" description={siteConfig.about.currentFocus}>
-        <div className="grid gap-4 md:grid-cols-2">
+      {/* Siapa Kami - with team image */}
+      <SectionWithImage
+        title="Siapa kami"
+        description={siteConfig.about.currentFocus}
+        imageSrc={siteConfig.images.team}
+        imageAlt="Professional team collaboration"
+        imagePosition="right"
+      >
+        <div className="flex flex-col gap-4">
           {siteConfig.about.overview.map((paragraph, index) => (
-            <div
-              key={paragraph}
-              className="card-surface"
-            >
-              <FadeIn delay={0.05 * index}>
+            <FadeIn key={paragraph} delay={0.05 * index}>
+              <div className="rounded-xl border border-brand-black/8 bg-brand-paper/50 p-5">
                 <p className="text-base text-brand-neutral">{paragraph}</p>
-              </FadeIn>
-            </div>
+              </div>
+            </FadeIn>
           ))}
         </div>
-      </Section>
+      </SectionWithImage>
 
+      {/* Prinsip Kerja - with images */}
       <Section
         title="Prinsip kerja"
         description="Pendekatan operasional yang kami terapkan untuk menjaga akuntabilitas dan kejelasan."
       >
-        <div className="grid gap-4 md:grid-cols-2">
-          {siteConfig.about.principles.map((item, index) => (
-            <div
-              key={item.title}
-              className="card-surface flex h-full flex-col gap-4"
-            >
-              <FadeIn delay={0.05 * index}>
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-primary/20 bg-brand-paper text-sm font-semibold text-brand-primary">
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-                <div className="mt-3 flex flex-col gap-2">
-                  <h3 className="text-xl font-semibold text-brand-black">
-                    {item.title}
-                  </h3>
-                  <p className="text-base text-brand-neutral">
-                    {item.description}
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
-          ))}
+        <div className="grid gap-6 md:grid-cols-2">
+          {siteConfig.about.principles.map((item, index) => {
+            const images = [
+              siteConfig.images.documents,
+              siteConfig.images.legal,
+              siteConfig.images.handshake,
+              siteConfig.images.planning,
+            ];
+            return (
+              <div
+                key={item.title}
+                className="group overflow-hidden rounded-2xl border border-brand-black/8 bg-white shadow-sm transition-all hover:shadow-md"
+              >
+                <FadeIn delay={0.05 * index}>
+                  {/* Image */}
+                  <div className="relative h-36 overflow-hidden">
+                    <Image
+                      src={images[index]}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-sm font-semibold text-brand-primary shadow-sm">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="flex flex-col gap-2 p-5">
+                    <h3 className="text-xl font-semibold text-brand-black">
+                      {item.title}
+                    </h3>
+                    <p className="text-base text-brand-neutral">
+                      {item.description}
+                    </p>
+                  </div>
+                </FadeIn>
+              </div>
+            );
+          })}
         </div>
       </Section>
 
-      <Section
+      {/* Kontak - with image */}
+      <SectionWithImage
         title="Kontak"
         description="Kami terbuka untuk diskusi awal dan penjajakan kemitraan."
+        imageSrc={siteConfig.images.communication}
+        imageAlt="Business communication"
+        imagePosition="left"
       >
         <ContactCard
           email={siteConfig.contact.email}
           whatsapp={siteConfig.contact.whatsapp}
           description="Silakan jadwalkan percakapan; kami merespons secara terstruktur."
         />
-      </Section>
+      </SectionWithImage>
     </div>
   );
 }
-

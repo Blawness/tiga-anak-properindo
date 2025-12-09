@@ -3,6 +3,29 @@ export const siteConfig = {
   tagline: "Membangun fondasi properti yang terpercaya",
   description:
     "Perusahaan properti baru yang berfokus pada fondasi tata kelola, kemitraan yang transparan, dan persiapan proyek yang solid.",
+  images: {
+    // Modern architecture & property
+    hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
+    property: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    building: "https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?w=800&q=80",
+    // Business & partnership
+    collaboration: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    meeting: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+    handshake: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
+    // Planning & construction
+    planning: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    construction: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    blueprint: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    // Legal & documents
+    legal: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+    documents: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    // Office & communication
+    office: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    communication: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=800&q=80",
+    // Team & people
+    team: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    professional: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80",
+  },
   brand: {
     primary: "#6F3715",
     accent: "#B1846A",
@@ -124,6 +147,15 @@ export const siteConfig = {
       subtitle:
         "Hubungi kami untuk percakapan awal. Kami menyiapkan waktu khusus agar diskusi berjalan fokus dan produktif.",
       availability: "Respons terjadwal, dengan prioritas pada kejelasan kebutuhan.",
+    },
+    comingSoon: {
+      title: "Coming Soon",
+      subtitle:
+        "Halaman ini sedang kami siapkan untuk rilis resmi. Mohon tunggu pembaruan berikutnya.",
+      statusDetail:
+        "Kami memfinalkan materi, visual, dan tata kelola informasi agar sesuai standar komunikasi perusahaan.",
+      nextStepNote:
+        "Apabila Anda membutuhkan profil singkat atau penjelasan awal, silakan hubungi kami melalui email.",
     },
   },
 };
