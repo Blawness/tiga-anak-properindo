@@ -123,7 +123,7 @@ export default function HomePage() {
               rencana, dan menentukan langkah prioritas secara realistis.
             </p>
             <div className="mt-8">
-              <CTAButton href={mailto} variant="primary">
+              <CTAButton href={mailto} variant="solid">
                 Hubungi Kami
               </CTAButton>
             </div>
